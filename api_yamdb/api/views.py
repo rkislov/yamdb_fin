@@ -1,12 +1,5 @@
 import uuid
 
-from api.filters import TitleFilter
-from api.permissions import (IsAdminOrReadOnly, IsAdminOrSuperUser,
-                             IsUserAdminModeratorOrReadOnly)
-from api.serializers import (CategorySerializer, CommentSerializer,
-                             GenreSerializer, ProfileSerializer,
-                             ReviewSerializer, SignupSerializer,
-                             TitleSerializer, TokenSerializer, UserSerializer)
 from django.core.mail import send_mail
 from django.db.models import Avg
 from django_filters.rest_framework import DjangoFilterBackend
@@ -20,6 +13,14 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from reviews.models import Category, Genre, Review, Title
 from users.models import User
+
+from api.filters import TitleFilter
+from api.permissions import (IsAdminOrReadOnly, IsAdminOrSuperUser,
+                             IsUserAdminModeratorOrReadOnly)
+from api.serializers import (CategorySerializer, CommentSerializer,
+                             GenreSerializer, ProfileSerializer,
+                             ReviewSerializer, SignupSerializer,
+                             TitleSerializer, TokenSerializer, UserSerializer)
 
 
 class TokenView(TokenObtainPairView):
